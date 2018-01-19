@@ -1,0 +1,2 @@
+interface SecuritySensor : Sensor {
+}

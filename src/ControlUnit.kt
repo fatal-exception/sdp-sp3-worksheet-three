@@ -1,10 +1,9 @@
-class ControlUnit {
+import org.joda.time.DateTime
+import org.joda.time.DateTimeZone
 
-    fun pollSensors() {
-        val sensors = ArrayList<Sensor>()
-        sensors.add(FireSensor())
-        sensors.add(SmokeSensor())
+open class ControlUnit(private val sensors: List<Sensor>) {
 
+    open fun pollSensors() {
         for (sensor in sensors) {
             if (sensor.isTriggered()) {
                 println("A ${sensor.getSensortype()}  sensor was triggered at  ${sensor.getLocation()}")
@@ -13,4 +12,17 @@ class ControlUnit {
             }
         }
     }
+}
+
+class SecurityControlUnit(private val sensors: List<SecuritySensor>) : ControlUnit(sensors) {
+    private val dt: DateTime = DateTime(DateTimeZone.UTC)
+
+    override fun pollSensors() {
+        // if time between 10pm and 6am
+        if (dt.hourOfDay > 22 || dt.hourOfDay < 6) {
+            super.pollSensors()
+        }
+        else println("Will not poll security sensors - it's daytime!")
+    }
+
 }

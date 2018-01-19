@@ -1,17 +1,19 @@
-class FireSensor() : Sensor {
+import java.util.Random
+
+class FireSensor : ChargeableSensor() {
+    private val r: Random = Random()
+
     override fun isTriggered(): Boolean {
-        TODO("not implemented")
+        battery -= 10
+        return r.nextInt(100) < 5
     }
 
     override fun getLocation(): String {
-        TODO("not implemented")
+        return ""
     }
 
     override fun getSensortype(): String {
-        TODO("not implemented")
+        return "Fire sensor"
     }
 
-    override fun getBatteryPercentage(): Double {
-        TODO("not implemented")
-    }
 }

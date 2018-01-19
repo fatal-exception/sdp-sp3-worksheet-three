@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/worksheet-three.iml" filepath="$PROJECT_DIR$/worksheet-three.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/sdp-sp3-worksheet-three.iml" filepath="$PROJECT_DIR$/.idea/sdp-sp3-worksheet-three.iml" />
     </modules>
   </component>
 </project>

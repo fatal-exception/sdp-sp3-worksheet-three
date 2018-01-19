@@ -1,4 +1,6 @@
 interface Sensor {
+    val announcers: List<Announcer>
+
     /**
      * returns true/false for whether the sensor is triggered or not.
      * Different sensors have different rules applied to them.
@@ -14,9 +16,4 @@ interface Sensor {
      * returns a textual description of the sensor type such as "Fire sensor" or "Smoke sensor".
      */
     fun getSensortype(): String
-
-    /**
-     * Returns a number between 0-100 where 0 is empty and 100 is fully charged.
-     */
-    fun getBatteryPercentage(): Double
 }

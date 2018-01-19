@@ -42,7 +42,7 @@ You are given the following specifications:
 	(Hint: *Dependency Inversion Principle*).
 5. Investigate the `pollSensors` method again, as you did in the previous exercise. What are its responsibilities now?
 6. A new use case! This is no longer a alarm system for only detecting hazards. It should now also include security such as *motion* and *heat* sensors. 
-	However, these sensors don’t run on a battery so one of the `Sensor` interface methods is suddenly redundant for a whole set of sensors. Which method is this and what SOLID principle does this break?
+	However, these sensors don’t run on a battery so one of the `Sensor` interface methods is suddenly redundant for a whole set of sensors. Which method is this and what SOLID principle does this break? Interface Segregation! Also Single Responsibility...
 7. Following the principle you decided upon in the previous exercise, solve the problem by following the presentation slide hints on this principle.
 8. Create a new `MotionSensor` sensor, which inherits from the `Sensor` interface. These new security sensors should be polled separately from the hazard sensors. 
 	This requires a way to distinguish between the two sensor categories. Make changes to the `Sensor` interface to accommodate this.
@@ -50,7 +50,7 @@ You are given the following specifications:
 	Since we don’t want to mix security sensor and hazard sensor behaviour in the same polling mechanism, we decide to make use of inheritance and create a new 
 	`SecurityControlUnit` which enhances the existing `ControlUnit`. Our intention is to pass in the security sensors through the parent constructor and then implement a rule that checks the current time and 
 	if it’s between 22:00-06:00, we run the  parent `pollSensors` method which already does the heavy lifting for us.
-10. Which SOLID principle are we maintaining/not breaking by doing this?
+10. Which SOLID principle are we maintaining/not breaking by doing this? Open for extension.
 11. Create the `SecurityControlUnit` by enhancing `ControlUnit`.
 12. Implement the timecheck rule and poll the sensors.
 13. We want to test that an alarm is raised, and also implement different alarm notification methods (For example: automatically call the fire service, call the owner’s phone, 

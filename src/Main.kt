@@ -1,7 +1,10 @@
 import java.util.*
 
 fun main(args: Array<String>) {
-    val controlUnit = ControlUnit()
+    val sensors = listOf(FireSensor(), SmokeSensor())
+    val securitySensors = listOf(MotionSensor())
+    val controlUnit = ControlUnit(sensors)
+    val securityControlUnit = SecurityControlUnit(securitySensors)
 
     val scanner = Scanner(System.`in`)
     var input = ""
@@ -10,6 +13,7 @@ fun main(args: Array<String>) {
         input = scanner.nextLine()
         if (input == "poll") {
             controlUnit.pollSensors()
+            securityControlUnit.pollSensors()
         }
     } while (input != "exit")
 }

@@ -3,7 +3,7 @@ import org.junit.Test
 import kotlin.test.assertEquals
 
 class SmokeSensorTest {
-    lateinit var sensor: SmokeSensor
+    lateinit var sensor: ChargeableSensor
 
     @Before
     fun setup(){
@@ -29,8 +29,8 @@ class SmokeSensorTest {
     }
 
     @Test
-    fun testThatGetBatteryPercentageReturnsNegativeOne() {
+    fun testThatGetBatteryPercentageReturnsOneHundred() {
         val batteryPercentage = sensor.getBatteryPercentage()
-        assertEquals(0.0, batteryPercentage)
+        assertEquals(100.0, batteryPercentage)
     }
 }
