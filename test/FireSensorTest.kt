@@ -3,7 +3,7 @@ import org.junit.Test
 import kotlin.test.assertEquals
 
 class FireSensorTest  {
-    lateinit var sensor: ChargeableSensor
+    lateinit var sensor: FireSensor
 
     @Before
     fun startup(){

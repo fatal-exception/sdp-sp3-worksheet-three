@@ -1,7 +1,7 @@
 import java.util.*
 
 fun main(args: Array<String>) {
-    val sensors = listOf(FireSensor(), SmokeSensor())
+    val sensors: List<Sensor> = listOf(FireSensor(), SmokeSensor())
     val securitySensors = listOf(MotionSensor())
     val controlUnit = ControlUnit(sensors)
     val securityControlUnit = SecurityControlUnit(securitySensors)

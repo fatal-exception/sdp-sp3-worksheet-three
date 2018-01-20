@@ -1,7 +1,9 @@
 import java.util.Random
 
-class FireSensor : ChargeableSensor() {
+class FireSensor : Sensor, Chargeable {
+    override val announcers = emptyList<Announcer>()
     private val r: Random = Random()
+    var battery: Double = 100.0
 
     override fun isTriggered(): Boolean {
         battery -= 10
@@ -15,5 +17,7 @@ class FireSensor : ChargeableSensor() {
     override fun getSensortype(): String {
         return "Fire sensor"
     }
+
+    override fun getBatteryPercentage(): Double = battery
 
 }
